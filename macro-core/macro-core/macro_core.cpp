@@ -77,13 +77,13 @@ int MacroCore::getAverageRTT(const std::vector<std::string>& ip_addrs) {
 	int rtt_total_accum = 0;
 	int rtt_valid_count = 0;
 	for (auto& ip_addr : ip_addrs) {
-		std::cout << "Get RTT => " << ip_addr << std::endl;
+		//std::cout << "Get RTT => " << ip_addr << std::endl;
 		auto rtt = network::GetIcmpEchoRTT(ip_addr);
 		if (rtt < 0) {
 			std::cerr << "Failed to get RTT to host: " << ip_addr << std::endl;
 		}
 		else {
-			std::cout << "RTT: " << rtt << " (" << ip_addr << ")" << std::endl;
+			//std::cout << "RTT: " << rtt << " (" << ip_addr << ")" << std::endl;
 			rtt_valid_count += 1;
 			rtt_total_accum = rtt;
 		}

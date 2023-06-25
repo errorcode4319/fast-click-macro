@@ -1,8 +1,8 @@
 import sys 
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
-
-
+import dll 
+import datetime
 
 class App(QWidget):
 
@@ -49,14 +49,20 @@ class App(QWidget):
         
         self.target_host = target_host
         self.click_time = click_time
+        vals = [int(val) for val in click_time.split(':')]
         # TODO: Set Configure & Macro Restart
+        dll.start(target_host, vals[0], vals[1], vals[2])
 
 
     def show_cur_info(self):
         # TODO: Get Current Info From Macro Core
+        rtt, server_time = dll.get_states()
+        self.target_rtt_ms = rtt
+        dt = datetime.datetime.fromtimestamp(server_time // 1000)
+        self.server_time = str(dt)
 
         self.lbl_target_host_info.setText(f"타겟 서버: {self.target_host}")
-        self.lbl_server_time_info.setText(f"서버 시간(실시간): 2023-06-25 11:17:00")
+        self.lbl_server_time_info.setText(f"서버 시간(실시간): {self.server_time}")
         self.lbl_server_rtt_info.setText(f"패킷 왕복 시간 측정(RTT): {self.target_rtt_ms}ms")
         self.lbl_click_time_info.setText(f"클릭 설정 시간: {self.click_time}")
 
