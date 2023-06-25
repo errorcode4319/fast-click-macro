@@ -12,6 +12,8 @@
 extern "C" {
 #endif 
 
+__declspec(dllimport) void init();
+
 __declspec(dllimport) void 
 start(const char* host, int target_hour, int target_min, int target_sec);
 

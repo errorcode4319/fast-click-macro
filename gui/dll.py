@@ -7,6 +7,10 @@ macro_core_dll = windll.LoadLibrary("./lib/macro-core.dll")
 
 start_func = macro_core_dll["start"]
 get_states_func = macro_core_dll["get_states"]
+init_func = macro_core_dll["init"]
+
+def init():
+    init_func()
 
 def start(target_host: str, click_hour: int, click_min: int, click_sec: int):
     global start_func

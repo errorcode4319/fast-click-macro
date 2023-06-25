@@ -1,9 +1,14 @@
 #include "macro_core.hpp"
+#include "network.hpp"
 extern "C" {
 #include "export.hpp"
 }
 
 MacroCore g_macro;
+
+void init() {
+	network::Init();
+}
 
 void 
 start(const char* host, int target_hour, int target_min, int target_sec) {

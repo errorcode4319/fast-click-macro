@@ -21,6 +21,8 @@ class App(QWidget):
         self.target_rtt_ms = 6
         self.click_time = "--:--:--"
 
+        dll.init() 
+
 
     def initUI(self):
         self.setWindowTitle('Weverse Submit Macro')

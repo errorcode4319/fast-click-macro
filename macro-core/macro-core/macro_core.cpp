@@ -48,7 +48,7 @@ void MacroCore::process()
 		timeutil::Sleep(100);
 		auto cur_epoch = timeutil::GetEpochMs();
 		if (cur_epoch - last_update > 5000 && 
-			std::abs(int(next_click_time_seconds - prev_time_seconds)) < 10) {
+			std::abs(int(next_click_time_seconds - prev_time_seconds)) >= 10) {
 			avg_rtt_ms = getAverageRTT(ip_addrs);
 			last_update = cur_epoch;
 		}
@@ -65,10 +65,10 @@ void MacroCore::process()
 		);
 		if (prev_time_seconds != server_time_seconds &&
 			next_click_time_seconds == server_time_seconds) {
-			prev_time_seconds = server_time_seconds;
 			mouse::SendLeftClick();
 			std::cout << "!! Mouse Click !!" << std::endl;
 		}
+		prev_time_seconds = server_time_seconds;
 
 		setStates(avg_rtt_ms, server_time_loc, 0);
 	}
