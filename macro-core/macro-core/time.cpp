@@ -27,7 +27,7 @@ uint64_t GetUnixTimestamp(int year, int mon, int day, int hour, int min, int sec
 
 uint64_t GetUnixTimestampFromSysTime(const SYSTEMTIME& systime) {
     auto [year, mon, dayofweek, day, hour, min, sec, msec] = systime;
-    std::cout << "Server Time: " << year << ':' << mon << ':' << day << ' ' << hour << ':' << min << ':' << sec << ':' << msec << std::endl;
+    //std::cout << "Server Time: " << year << ':' << mon << ':' << day << ' ' << hour << ':' << min << ':' << sec << ':' << msec << std::endl;
 
     return GetUnixTimestamp(
         int(systime.wYear),
@@ -51,5 +51,16 @@ uint64_t GetEpochFromTM(struct tm timestamp) {
     std::time_t t = mktime(&timestamp);
     return (uint64_t(t) * 1000);
 }
+
+std::string GetDatetimeFromEpoch(uint64_t epoch) {
+    auto tm = GetTMFromEpoch(epoch);
+    std::stringstream ss;
+    ss << std::setfill('0') << std::setw(4) << tm.tm_year + 1900 << '-'
+        << std::setw(2) << tm.tm_mon + 1 << '-' << tm.tm_mday << ' '
+        << tm.tm_hour << ':' << tm.tm_min << ':' << tm.tm_sec << '.'
+        << std::setw(3) << epoch % 1000;
+    return ss.str();
+}
+
 
 }

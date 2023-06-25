@@ -13,7 +13,10 @@
 #include <ctime>
 #include <chrono>
 #include <thread>
+#include <sstream>
+#include <iomanip>
 #include <windows.h>
+
 
 namespace timeutil {
 
@@ -33,5 +36,8 @@ inline uint64_t GetEpochMs() {
 inline void Sleep(uint64_t msec) {
 	std::this_thread::sleep_for(std::chrono::milliseconds(msec));
 }
+
+std::string GetDatetimeFromEpoch(uint64_t epoch);
+
 
 }

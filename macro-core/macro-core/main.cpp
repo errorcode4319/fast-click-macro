@@ -27,7 +27,8 @@ int main() {
 		server_time_tm.tm_hour += 9;
 		uint64_t server_time_loc = timeutil::GetEpochFromTM(server_time_tm);
 		uint64_t cur_epoch_ms = timeutil::GetEpochMs();
-		std::cout << "ServerTime: " << server_time_loc << "  Epoch: " << cur_epoch_ms << std::endl;
+		std::cout << "ServerTime:\t" << server_time_loc << " => " << timeutil::GetDatetimeFromEpoch(server_time_loc) << std::endl;
+		std::cout << "CurrentTime:\t" << cur_epoch_ms << " => " << timeutil::GetDatetimeFromEpoch(cur_epoch_ms) << std::endl;
 
 	}
 
