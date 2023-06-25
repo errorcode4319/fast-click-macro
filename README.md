@@ -3,6 +3,6 @@ Macro Software for Mouse Click, With Network State Analysis
 
 
 ## Features
- - [ ] Get Average Ping Time
- - [ ] Get HTTP Server Time
- - [ ] Mouse Click
+ - [X] Get Average Ping Time
+ - [X] Get HTTP Server Time
+ - [X] Mouse Click
