@@ -45,9 +45,10 @@ void MacroCore::process()
 	int prev_time_seconds = 0;
 	while (m_is_running) {
 
-		timeutil::Sleep(200);
+		timeutil::Sleep(100);
 		auto cur_epoch = timeutil::GetEpochMs();
-		if (cur_epoch - last_update > 5000) {
+		if (cur_epoch - last_update > 5000 && 
+			std::abs(int(next_click_time_seconds - prev_time_seconds)) < 10) {
 			avg_rtt_ms = getAverageRTT(ip_addrs);
 			last_update = cur_epoch;
 		}
