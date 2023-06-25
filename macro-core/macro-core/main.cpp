@@ -1,5 +1,6 @@
 #include "network.hpp"
 #include "time.hpp"
+#include "mouse.hpp"
 #include <chrono>
 
 int main() {
@@ -29,7 +30,7 @@ int main() {
 		uint64_t cur_epoch_ms = timeutil::GetEpochMs();
 		std::cout << "ServerTime:\t" << server_time_loc << " => " << timeutil::GetDatetimeFromEpoch(server_time_loc) << std::endl;
 		std::cout << "CurrentTime:\t" << cur_epoch_ms << " => " << timeutil::GetDatetimeFromEpoch(cur_epoch_ms) << std::endl;
-
+		mouse::SendLeftClick();
 	}
 
 
