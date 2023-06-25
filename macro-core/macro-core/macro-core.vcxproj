@@ -128,6 +128,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="macro_core.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mouse.cpp" />
     <ClCompile Include="network.cpp" />
@@ -135,6 +136,7 @@
     <ClCompile Include="time.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="macro_core.hpp" />
     <ClInclude Include="mouse.hpp" />
     <ClInclude Include="network.hpp" />
   </ItemGroup>

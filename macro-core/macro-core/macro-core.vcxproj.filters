@@ -30,12 +30,18 @@
     <ClCompile Include="mouse.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="macro_core.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="network.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="mouse.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="macro_core.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

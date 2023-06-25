@@ -230,7 +230,7 @@ uint64_t GetHttpServerTime(const std::string& host)
     std::string uri = std::string("http://") + host;
     std::wstring uri_w;
     uri_w.assign(uri.begin(), uri.end());
-    std::wcout << uri_w << std::endl;
+    //std::wcout << uri_w << std::endl;
 
     HINTERNET hInternetFile = InternetOpenUrl(hInternetSession,
         uri_w.c_str(), 0, 0,
